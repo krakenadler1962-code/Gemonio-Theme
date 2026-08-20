@@ -1,0 +1,299 @@
+:root {
+  --gemonio-shell: min(1180px, calc(100vw - 48px));
+  --gemonio-content: min(960px, calc(100vw - 48px));
+  --gemonio-section-y: 88px;
+  --gemonio-title-space: 48px;
+  --gemonio-title-rule-gap: 24px;
+  --gemonio-title-align: center;
+  --gemonio-line: #d8d8d3;
+  --gemonio-ink: #3d3d3d;
+  --gemonio-paper: #fff;
+  --gemonio-dark: #222;
+  --gemonio-dark-text: #f9f9f9;
+  --gemonio-mist: #f3f3f0;
+  --gemonio-heading: #434343;
+  --gemonio-title-color: #d64a00;
+  --gemonio-accent: #151515;
+  --gemonio-header-height: 72px;
+  --gemonio-body-font: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  --gemonio-body-size: 16px;
+  --gemonio-body-line: 1.65;
+  --gemonio-body-weight: 400;
+  --gemonio-title-font: "Oswald", "Arial Narrow", Arial, sans-serif;
+  --gemonio-title-size: 60px;
+  --gemonio-title-weight: 700;
+  --gemonio-title-line: 1.05;
+  --gemonio-title-transform: uppercase;
+  --gemonio-h3-size: 30px;
+  --gemonio-h3-weight: 700;
+  --gemonio-nav-font: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  --gemonio-nav-size: 16px;
+  --gemonio-nav-weight: 400;
+  --gemonio-nav-gap: 26px;
+  --gemonio-nav-bg: #fff;
+  --gemonio-nav-text: #515151;
+  --gemonio-nav-active: #d64a00;
+  --gemonio-header-compact-height: 58px;
+  --gemonio-logo-height: 42px;
+  --gemonio-logo-mobile-height: 36px;
+  --gemonio-button-bg: #151515;
+  --gemonio-button-text: #fff;
+  --gemonio-button-radius: 0px;
+  --gemonio-button-py: 12px;
+  --gemonio-button-px: 20px;
+  --gemonio-button-weight: 600;
+  --gemonio-separator-font: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  --gemonio-separator-size: 30px;
+  --gemonio-separator-weight: 600;
+  --gemonio-separator-style: italic;
+  --gemonio-separator-text: #fff;
+  --gemonio-parallax-compact: 220px;
+  --gemonio-parallax-normal: 400px;
+  --gemonio-parallax-large: 620px;
+  --gemonio-parallax-overlay: .18;
+  --gemonio-lightbox-overlay: #111;
+  --gemonio-lightbox-opacity: 92%;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; }
+body {
+  margin: 0;
+  background: var(--gemonio-paper);
+  color: var(--gemonio-ink);
+  font-family: var(--gemonio-body-font);
+  font-size: var(--gemonio-body-size);
+  font-weight: var(--gemonio-body-weight);
+  line-height: var(--gemonio-body-line);
+}
+img { max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+.gemonio-section-content a:not(.wp-element-button):not(.wp-block-button__link) { text-decoration-color: color-mix(in srgb, var(--gemonio-accent) 65%, transparent); }
+.gemonio-section-content a:not(.wp-element-button):not(.wp-block-button__link):hover { color: var(--gemonio-accent); }
+:focus-visible { outline: 2px solid var(--gemonio-accent); outline-offset: 3px; }
+h1, h2, h3, h4, h5, h6 { color: var(--gemonio-heading); line-height: 1.15; }
+h3 { font-family: var(--gemonio-title-font); font-size: var(--gemonio-h3-size); font-weight: var(--gemonio-h3-weight); }
+
+.site-shell { width: var(--gemonio-shell); margin-inline: auto; }
+.screen-reader-text { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.skip-link:focus { position: fixed; z-index: 9999; top: 12px; left: 12px; width: auto; height: auto; clip: auto; padding: 10px 14px; background: #fff; color: #151515; }
+
+/* Navigation: intentionally plain, like SCRN. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  color: var(--gemonio-nav-text);
+  background: color-mix(in srgb, var(--gemonio-nav-bg) 96%, transparent);
+  border-bottom: 1px solid var(--gemonio-line);
+  backdrop-filter: blur(10px);
+}
+.site-header__inner { min-height: var(--gemonio-header-height); display: flex; align-items: center; justify-content: space-between; gap: 32px; transition: min-height 240ms ease; }
+.site-branding { display: flex; align-items: center; }
+.site-title { color: inherit; text-decoration: none; font-family: var(--gemonio-title-font); font-size: 1rem; font-weight: 700; letter-spacing: .02em; }
+.custom-logo, .gemonio-brand-logo { display:block; max-height:var(--gemonio-logo-height); width:auto; }
+.gemonio-brand-logo-link, .custom-logo-link { display:block; line-height:0; }
+.primary-menu { display: flex; gap: var(--gemonio-nav-gap); align-items: center; list-style: none; margin: 0; padding: 0; }
+.primary-menu a { position: relative; color: inherit; text-decoration: none; font-family: var(--gemonio-nav-font); font-size: var(--gemonio-nav-size); font-weight: var(--gemonio-nav-weight); line-height: 1.2; }
+.primary-menu a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -.38rem; height: 1px; background: currentColor; transition: right 180ms ease; }
+.primary-menu a:hover::after,
+.primary-menu a:focus-visible::after,
+.primary-menu a.is-current::after { right: 0; }
+.primary-menu a.is-current { color: var(--gemonio-nav-active); }
+.site-header.is-scrolled .site-header__inner { min-height: var(--gemonio-header-compact-height); }
+.nav-toggle { display: none; width: 42px; height: 42px; padding: 10px; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.nav-toggle > span[aria-hidden="true"] { display: block; height: 1px; background: currentColor; margin: 7px 0; }
+
+.site-main { min-height: 70vh; }
+.content-shell { padding-block: clamp(56px, 8vw, 110px); }
+.single-entry > .entry-header { margin-bottom: 48px; }
+.entry-header h1, .archive-header h1 { font-family: var(--gemonio-title-font); font-size: clamp(2.4rem, 6vw, 5rem); margin: 0; }
+.entry-card { padding-block: 34px; border-bottom: 1px solid var(--gemonio-line); }
+.entry-title { margin: 0 0 8px; }
+.entry-title a { text-decoration: none; }
+.entry-summary > :last-child { margin-bottom: 0; }
+
+/* One page sections. */
+.gemonio-onepage-section { position: relative; padding-block: var(--gemonio-section-y); scroll-margin-top: calc(var(--gemonio-header-height) - 1px); }
+.gemonio-section__inner { width: var(--gemonio-content); margin-inline: auto; }
+.gemonio-onepage-section--wide .gemonio-section__inner { width: var(--gemonio-shell); }
+.gemonio-onepage-section--light { background: var(--gemonio-paper); color: var(--gemonio-ink); }
+.gemonio-onepage-section--dark { background: var(--gemonio-dark); color: var(--gemonio-dark-text); }
+.gemonio-onepage-section--mist { background: var(--gemonio-mist); color: var(--gemonio-ink); }
+.gemonio-onepage-section--dark h1,
+.gemonio-onepage-section--dark h2,
+.gemonio-onepage-section--dark h3,
+.gemonio-onepage-section--dark h4,
+.gemonio-onepage-section--dark h5,
+.gemonio-onepage-section--dark h6,
+.gemonio-onepage-section--dark a { color: inherit; }
+
+/* SCRN Classic: centered section title framed by calm divider lines. */
+.gemonio-section-title {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gemonio-title-rule-gap);
+  width: 100%;
+  margin: 0 0 var(--gemonio-title-space);
+  text-align: var(--gemonio-title-align);
+}
+.gemonio-section-title::before,
+.gemonio-section-title::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--gemonio-line);
+}
+.gemonio-section-title h2 {
+  margin: 0;
+  color: var(--gemonio-title-color);
+  font-family: var(--gemonio-title-font);
+  font-size: clamp(38px, 5vw, var(--gemonio-title-size));
+  font-weight: var(--gemonio-title-weight);
+  line-height: var(--gemonio-title-line);
+  text-align: inherit;
+  text-transform: var(--gemonio-title-transform);
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+.gemonio-section-subtitle {
+  max-width: 46rem;
+  margin: calc(var(--gemonio-title-rule-gap) * -0.45) auto 0;
+  color: var(--gemonio-title-color);
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-style: italic;
+  line-height: 1.35;
+  text-align: inherit;
+}
+.gemonio-onepage-section--dark .gemonio-section-title h2,
+.gemonio-onepage-section--dark .gemonio-section-subtitle { color: var(--gemonio-dark-text); }
+.gemonio-onepage-section--dark .gemonio-section-title::before,
+.gemonio-onepage-section--dark .gemonio-section-title::after { background: color-mix(in srgb, var(--gemonio-dark-text) 35%, transparent); }
+
+.gemonio-section-content > :first-child { margin-top: 0; }
+.gemonio-section-content > :last-child { margin-bottom: 0; }
+.gemonio-section-content p { margin-top: 0; margin-bottom: 1.25em; }
+
+/* Few, opinionated content patterns. */
+.gemonio-eyebrow, .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; font-weight: 700; }
+.gemonio-hero-title { max-width: 11ch; font-family: var(--gemonio-title-font); font-size: clamp(3rem, 9vw, 7.8rem); margin-top: 0; }
+.gemonio-lead { max-width: 680px; font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.5; }
+.gemonio-split { gap: clamp(32px, 6vw, 88px) !important; }
+
+/* Buttons are global design tokens, not per-block decoration. */
+.wp-element-button,
+.wp-block-button__link,
+button:not(.nav-toggle),
+input[type="submit"] {
+  border-radius: var(--gemonio-button-radius);
+}
+.wp-element-button,
+.wp-block-button__link {
+  padding: var(--gemonio-button-py) var(--gemonio-button-px);
+  background: var(--gemonio-button-bg);
+  color: var(--gemonio-button-text);
+  font-weight: var(--gemonio-button-weight);
+  text-decoration: none;
+}
+.gemonio-onepage-section--dark .wp-element-button,
+.gemonio-onepage-section--dark .wp-block-button__link { background: var(--gemonio-paper); color: var(--gemonio-dark); }
+
+/* SCRN's separator idea, rebuilt without scroll-event JavaScript. */
+.gemonio-separator { position: relative; display: grid; place-items: center; width: 100%; background-position: center; background-repeat: no-repeat; background-size: cover; overflow: hidden; }
+.gemonio-separator--compact { min-height: var(--gemonio-parallax-compact); }
+.gemonio-separator--normal { min-height: var(--gemonio-parallax-normal); }
+.gemonio-separator--large { min-height: var(--gemonio-parallax-large); }
+.gemonio-separator--parallax { background-attachment: fixed; }
+.gemonio-separator__inner { position: relative; z-index: 2; width: var(--gemonio-shell); margin-inline: auto; text-align: center; }
+.gemonio-separator__inner p {
+  max-width: 30ch;
+  margin: 0 auto;
+  color: var(--gemonio-separator-text);
+  font-family: var(--gemonio-separator-font);
+  font-size: clamp(20px, 3vw, var(--gemonio-separator-size));
+  font-style: var(--gemonio-separator-style);
+  font-weight: var(--gemonio-separator-weight);
+  line-height: 1.25;
+  text-shadow: 0 1px 18px rgb(0 0 0 / 35%);
+}
+.gemonio-separator::after { content: ""; position: absolute; inset: 0; z-index: 1; background: rgb(0 0 0 / var(--gemonio-parallax-overlay)); pointer-events: none; }
+
+/* Native Gemonio lightbox. */
+.gemonio-section-content img[data-gemonio-lightbox] { cursor: zoom-in; }
+.gemonio-lightbox { position: fixed; inset: 0; z-index: 100000; display: grid; place-items: center; padding: clamp(18px, 4vw, 56px); background: color-mix(in srgb, var(--gemonio-lightbox-overlay) var(--gemonio-lightbox-opacity), transparent); }
+.gemonio-lightbox[hidden] { display: none; }
+.gemonio-lightbox__dialog { position: relative; max-width: min(94vw, 1600px); max-height: 92vh; display: grid; justify-items: center; gap: 12px; }
+.gemonio-lightbox__image { display: block; max-width: 100%; max-height: 82vh; width: auto; height: auto; object-fit: contain; box-shadow: 0 18px 70px rgb(0 0 0 / 35%); }
+.gemonio-lightbox__caption { max-width: 70ch; margin: 0; color: #fff; text-align: center; font-size: .9rem; line-height: 1.4; }
+.gemonio-lightbox__close { position: fixed; top: 18px; right: 18px; width: 44px; height: 44px; border: 1px solid rgb(255 255 255 / 42%); border-radius: 999px; background: rgb(0 0 0 / 24%); color: #fff; font: 300 28px/1 sans-serif; cursor: pointer; }
+.gemonio-lightbox__close:hover, .gemonio-lightbox__close:focus-visible { background: rgb(255 255 255 / 14%); outline: 2px solid #fff; outline-offset: 2px; }
+.gemonio-lightbox__prev, .gemonio-lightbox__next { position: fixed; top: 50%; width: 48px; height: 64px; margin-top: -32px; padding: 0; border: 0; background: transparent; color: #fff; font: 300 46px/1 sans-serif; cursor: pointer; opacity: .8; }
+.gemonio-lightbox__prev { left: clamp(8px, 2vw, 28px); }
+.gemonio-lightbox__next { right: clamp(8px, 2vw, 28px); }
+.gemonio-lightbox__prev:hover, .gemonio-lightbox__next:hover, .gemonio-lightbox__prev:focus-visible, .gemonio-lightbox__next:focus-visible { opacity: 1; outline-color: #fff; }
+.gemonio-lightbox__prev[hidden], .gemonio-lightbox__next[hidden] { display: none; }
+body.gemonio-lightbox-open { overflow: hidden; }
+
+.gemonio-back-to-top {
+  position: fixed;
+  right: clamp(16px, 2.4vw, 32px);
+  bottom: clamp(16px, 2.4vw, 32px);
+  z-index: 45;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--gemonio-line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--gemonio-nav-bg) 94%, transparent);
+  color: var(--gemonio-nav-text);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 8%);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 180ms ease, transform 180ms ease, background 180ms ease;
+  cursor: pointer;
+}
+.gemonio-back-to-top[hidden] { display: grid; opacity: 0; pointer-events: none; transform: translateY(8px); }
+.gemonio-back-to-top:hover { background: var(--gemonio-nav-bg); }
+.gemonio-back-to-top span { font: 400 20px/1 sans-serif; }
+
+.site-footer { border-top: 1px solid var(--gemonio-line); }
+.site-footer__inner { min-height: 100px; display: flex; align-items: center; justify-content: space-between; font-size: .875rem; }
+.site-footer p { margin: 0; }
+
+/* Editor: the same visual language, without pretending to be a full page. */
+.editor-styles-wrapper { font-family: var(--gemonio-body-font); font-size: var(--gemonio-body-size); line-height: var(--gemonio-body-line); }
+.editor-styles-wrapper .gemonio-hero-title { font-size: clamp(3rem, 7vw, 6.5rem); }
+
+@media (max-width: 760px) {
+  :root {
+    --gemonio-shell: min(100% - 32px, 1180px);
+    --gemonio-content: min(100% - 32px, 960px);
+    --gemonio-header-height: 68px;
+  }
+
+  .custom-logo, .gemonio-brand-logo { max-height:var(--gemonio-logo-mobile-height); }
+  .nav-toggle { display: block; margin-left: auto; }
+  .primary-navigation { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 18px 16px 26px; color: var(--gemonio-nav-text); background: var(--gemonio-nav-bg); border-bottom: 1px solid var(--gemonio-line); }
+  .primary-navigation.is-open { display: block; }
+  .primary-menu { flex-direction: column; align-items: stretch; gap: 6px; }
+  .primary-menu a { display: block; padding: 10px 0; font-size: max(16px, var(--gemonio-nav-size)); }
+  .primary-menu a::after { display: none; }
+  .gemonio-section-title { gap: 18px; }
+  .gemonio-section-title h2 { font-size: clamp(34px, 12vw, 58px); overflow-wrap: anywhere; }
+  .gemonio-separator--parallax { background-attachment: scroll; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .gemonio-separator--parallax { background-attachment: scroll; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .primary-menu a::after,
+  .site-header__inner,
+  .gemonio-back-to-top { transition: none; }
+  .gemonio-separator--parallax { background-attachment: scroll; }
+}

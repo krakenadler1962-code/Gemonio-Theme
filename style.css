@@ -1,0 +1,16 @@
+/* Gemonio local font architecture */
+@font-face{font-family:"Gemonio Oswald";src:url("assets/fonts/oswald-variable.woff2") format("woff2");font-style:normal;font-weight:200 900;font-display:swap;}
+@font-face{font-family:"Gemonio Source Sans 3";src:url("assets/fonts/source-sans-3-variable.woff2") format("woff2");font-style:normal;font-weight:200 900;font-display:swap;}
+/*
+Theme Name: Gemonio
+Theme URI: https://gemonio.ch/
+Author: Gemonio
+Description: A deliberately simple, performance-first WordPress one-page theme with native sections and modern parallax separators.
+Version: 0.6.6
+Requires at least: 6.6
+Tested up to: 7.1
+Requires PHP: 7.4
+Text Domain: gemonio
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+*/
